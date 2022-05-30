@@ -1,0 +1,16 @@
+
+.banner {
+  text-align: center;
+}
+.nav-bar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.nav-bar > * {
+  text-decoration: none;
+  margin: 0 1rem;
+}
+a{
+  
+}
