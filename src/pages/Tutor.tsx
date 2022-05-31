@@ -3,7 +3,7 @@ import TabButton from "../components/TabButton";
 
 export default function Tutor() {
   return (
-    <div>
+    <div className="tab-bar">
       <TabButton text="Single Page App (SPA)"></TabButton>
       <TabButton text="Getting Started"></TabButton>
       <TabButton text="Components"></TabButton>
@@ -12,6 +12,6 @@ export default function Tutor() {
       <TabButton text="React hooks"></TabButton>
       <TabButton text="Advance Usages"></TabButton>
     </div>
-    
+
   );
 }
