@@ -1,0 +1,19 @@
+.grid-box {
+  width: 85%;
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-box>div:nth-child(2),
+.grid-box>div:nth-child(3),
+.grid-box>div:nth-child(4n + 2),
+.grid-box>div:nth-child(4n + 3) {
+  grid-column: span 2;
+  background-color: rgba(147, 186, 130, 0.8);
+  color: rgba(157, 111, 31, 0.8);
+}
+
+.grid-item {
+  background-color: black;
+}

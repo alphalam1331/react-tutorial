@@ -1,14 +1,12 @@
 import { FormEvent, useContext, useState } from "react";
 import "./App.css";
 import { Link, Route, Routes } from "react-router-dom";
-import Banner from "./components/Banner";
 import About from "./pages/About";
-import Tutor from "./pages/Tutor";
-import React from "react";
+import Tutorial from "./pages/Tutorial";
 import { UserNameContext } from "./context/userNameContext";
 import Home from "./pages/Home";
-import TodoItem from "./components/TodoItem";
-import TodoList from "./pages/TodoLsit";
+import TestimonialPortal from "./pages/TestimonialPortal";
+import { TestimonialsContext } from "./context/testimonialsContext";
 
 function App() {
   const [name, setName] = useState<string | null>(localStorage.getItem("name"));
@@ -28,6 +26,10 @@ function App() {
     localStorage.removeItem("name");
   };
 
+  const { testimonials } = useContext(TestimonialsContext);
+
+  const [testimonialList, setTestimonials] = useState(testimonials);
+
   return (
     <div className="App">
       <nav className="nav-bar">
@@ -36,14 +38,14 @@ function App() {
             {new Date().getHours() < 12 ? "Morning!" : "Hello~"}
           </h2>
         </Link>
-        <Link to={"/about"}>
-          <h3>About</h3>
+        <Link to={"/testimonial"}>
+          <h3>Testimonial Portal</h3>
         </Link>
         <Link to={"/tutor"}>
           <h3>React tutorial</h3>
         </Link>
-        <Link to={"/todo"}>
-          <h3>To-Do List</h3>
+        <Link to={"/about"}>
+          <h3>About</h3>
         </Link>
       </nav>
 
@@ -73,12 +75,16 @@ function App() {
         <UserNameContext.Provider
           value={{ name: name || "Palowan", resetName }}
         >
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/tutor" element={<Tutor />} />
-            <Route path="/todo" element={<TodoList />} />
-          </Routes>
+          <TestimonialsContext.Provider
+            value={{ testimonials: testimonialList, setTestimonials }}
+          >
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/testimonial/" element={<TestimonialPortal />} />
+              <Route path="/tutor/" element={<Tutorial />} />
+              <Route path="/about/" element={<About />} />
+            </Routes>
+          </TestimonialsContext.Provider>
         </UserNameContext.Provider>
       </section>
     </div>
