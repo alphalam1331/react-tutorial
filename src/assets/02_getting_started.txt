@@ -1,0 +1,27 @@
+### **Installation**
+
+- Using create-react-app
+    - `npx create-react-app APP_NAME` or `npx create-react-app APP_NAME --template typescript`
+    - `yarn create react-app APP_NAME` or `yarn create react-app APP_NAME --template typescript`
+- Using Vite
+    - `npm create vite@latest` (interactive mode)
+    - `npm create vite@latest APP_NAME -- --template react-ts`(Direct mode)
+    - `yarn create vite` (interactive mode)
+    - `yarn create vite APP_NAME --template react-ts` (Direct mode)
+    - `pnpm create vite` (interactive mode)
+    - `pnpm create vite APP_NAME -- --template react-ts` (Direct mode)
+
+
+### **Start the React app**
+
+
+1. Change the working directory (don't forget to install the packages for the first time)
+    - `cd APP_NAME`
+    - `npm i` or `yarn install` or `pnpm i`  
+
+
+2. Run the server
+    - `npm start` or `yarn start` or `pnpm start`
+    - `npm run dev` or `yarn dev` or `pnpm dev`
+
+## go to http://localhost:3000 you should see a rotating react logo

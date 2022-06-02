@@ -2,7 +2,8 @@ import { useContext } from "react";
 import { UserNameContext } from "../context/userNameContext";
 
 export default function About() {
-  const {name} = useContext(UserNameContext)
+  const { name } = useContext(UserNameContext);
+
 
   return (
     <>
