@@ -5,7 +5,6 @@ import { UserNameContext } from "../context/userNameContext";
 const TestimonialPortal = () => {
   const { name } = useContext(UserNameContext);
 
-  const [failure, setFailure] = useState<Boolean>(false);
   const { testimonials, setTestimonials } = useContext(TestimonialsContext);
 
   const [title, setTitle] = useState("");
@@ -23,29 +22,14 @@ const TestimonialPortal = () => {
 
     const newTestimonial = { title, content };
 
-    try {
-      if (setTestimonials) {
-        setTestimonials([...testimonials, newTestimonial]);
-        setFailure(false);
-      } else {
-        throw new Error("the function SetTestimonials is null");
-      }
-    } catch (error) {
-      console.log(error);
-      setFailure(true);
-    }
+    if (setTestimonials) setTestimonials([...testimonials, newTestimonial]);
 
     setTitle("");
     setContent("");
   };
 
   return (
-    <>
-      {failure ? (
-        <div style={{ color: "red" }}>Something went wrong:(</div>
-      ) : (
-        ""
-      )}
+    <div className="container">
       <div>{name}'s Testimonials</div>
       <form
         style={{ display: "flex", flexDirection: "column" }}
@@ -78,17 +62,13 @@ const TestimonialPortal = () => {
           <u>The latest testimonial</u>
         </h2>
         <div>
-          <p>
-            <h3>Title: </h3>
-            {testimonials[testimonials.length - 1].title}
-          </p>
-          <p>
-            <h3>Content: </h3>
-            {testimonials[testimonials.length - 1].content}
-          </p>
+          <h3>Title: </h3>
+          <p>{testimonials[testimonials.length - 1].title}</p>
+          <h3>Content: </h3>
+          <p>{testimonials[testimonials.length - 1].content}</p>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -71,7 +71,7 @@ function App() {
         )}
       </header>
 
-      <section className="main-content">
+      <section style={{display:"flex", justifyContent:"center"}}>
         <UserNameContext.Provider
           value={{ name: name || "Palowan", resetName }}
         >

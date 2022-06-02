@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import Card from "../components/Card";
 import { TestimonialsContext } from "../context/testimonialsContext";
 import { UserNameContext } from "../context/userNameContext";
@@ -10,7 +10,7 @@ export default function Home() {
   const { testimonials } = useContext(TestimonialsContext);
 
   return (
-    <>
+    <div className="container">
       <div>HIHI! User: {name}</div>
       <div>This is the Home page.</div>
       {name === "Palowan" ? (
@@ -25,6 +25,6 @@ export default function Home() {
           </Card>
         ))}
       </div>
-    </>
+    </div>
   );
 }
