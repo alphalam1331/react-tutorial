@@ -1,1 +1,21 @@
-03
+### **Components**
+Components are independent and reusable in the sense that once you have written a component snippet and exported it, you can place it anywhere.
+Components, in other words, are like modules, act as the building blocks of a page, but itself can be a page. like App.tsx/App.jsx
+
+In React, a component can either be class component or function component.
+Function component is going popular than class component, so it's what we are going to learn in this tutorial.
+
+As mentioned, App.tsx/App.jsx is an example of components. If you open the file, you will see a function named App which return something unusual.
+
+
+
+
+### **JavaScript XML (JSX)**
+
+
+### **References**
+
+File structure
+- [React official - file structure](https://www.robinwieruch.de/react-folder-structure/)
+- [Josh W Comeau](https://www.joshwcomeau.com/react/file-structure/)
+- [Robin Wieruch - React folder structure](https://www.robinwieruch.de/react-folder-structure/)

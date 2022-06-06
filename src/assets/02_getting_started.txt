@@ -19,9 +19,17 @@
     - `cd APP_NAME`
     - `npm i` or `yarn install` or `pnpm i`  
 
-
 2. Run the server
     - `npm start` or `yarn start` or `pnpm start`
     - `npm run dev` or `yarn dev` or `pnpm dev`
 
-## go to http://localhost:3000 you should see a rotating react logo
+**go to http://localhost:3000 you should see a rotating react logo**
+
+### **File structure**
+
+Inside the root directory, you may see the react app boilerplate had already been set up for you,
+then go further to the src/ directory where you may see: 
+
+1. main.tsx/main.jsx is the entry point of the application. 
+2. App.tsx/App.jsx provides you an example of react component, change some code and see what happens!
+3. It would be better to manage your files in multiple, hierarchial folders for having a organised file structure. There are many ways to do it, you are free to find yours, but, as the official said, don't spend more than 5mins on it.

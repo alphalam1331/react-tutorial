@@ -9,7 +9,6 @@ import reactHooksRaw from "../assets/06_react_hooks.txt";
 import advanceUsagesRaw from "../assets/07_advance_usages.txt";
 
 export default function Tutorial() {
-  const [text, setText] = useState("");
   const topics = [
     { title: "Single Page App (SPA)", rawText: spaRaw },
     { title: "Getting Started", rawText: gettingStartedRaw },
@@ -22,6 +21,8 @@ export default function Tutorial() {
     { title: "React hooks", rawText: reactHooksRaw },
     { title: "Advance Usages", rawText: advanceUsagesRaw },
   ];
+
+  const [text, setText] = useState("");
   const [currentTopic, setCurrentTopic] = useState(topics[0].rawText);
 
   useEffect(() => {
@@ -41,10 +42,12 @@ export default function Tutorial() {
         .forEach((e) => e.classList.remove("active"));
       element.classList.add("active");
 
-      setCurrentTopic(()=>{
-        const temp = topics.filter(topic=>topic.title === element.textContent)
-        return temp[0].rawText
-      })
+      setCurrentTopic(() => {
+        const temp = topics.filter(
+          (topic) => topic.title === element.textContent
+        );
+        return temp[0].rawText;
+      });
     }
   };
 
@@ -52,7 +55,9 @@ export default function Tutorial() {
     <div className="container">
       <div className="tab-bar" onClick={(e) => handleClick(e)}>
         {topics.map((topic, index) => (
-          <button key={index} className="tab">{topic.title}</button>
+          <button key={index} className="tab">
+            {topic.title}
+          </button>
         ))}
       </div>
       <div>
