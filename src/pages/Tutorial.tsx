@@ -3,27 +3,28 @@ import ReactMarkdown from "react-markdown";
 import spaRaw from "../assets/01_spa.txt";
 import gettingStartedRaw from "../assets/02_getting_started.txt";
 import componentsRaw from "../assets/03_components.txt";
-import lifeCycleAndReactFiber_raw from "../assets/04_life_cycle_and_react_fiber.txt";
+import reactFiber_raw from "../assets/04_react_fiber.txt";
 import stateManagementRaw from "../assets/05_state_management.txt";
 import reactHooksRaw from "../assets/06_react_hooks.txt";
 import advanceUsagesRaw from "../assets/07_advance_usages.txt";
 
+const topics = [
+  { title: "Single Page App (SPA)", textFile: spaRaw },
+  { title: "Getting Started", textFile: gettingStartedRaw },
+  { title: "Components", textFile: componentsRaw },
+  {
+    title: "React Fiber",
+    textFile: reactFiber_raw,
+  },
+  { title: "State management", textFile: stateManagementRaw },
+  { title: "React hooks", textFile: reactHooksRaw },
+  { title: "Advance Usages", textFile: advanceUsagesRaw },
+];
+
 export default function Tutorial() {
-  const topics = [
-    { title: "Single Page App (SPA)", rawText: spaRaw },
-    { title: "Getting Started", rawText: gettingStartedRaw },
-    { title: "Components", rawText: componentsRaw },
-    {
-      title: "Life Cycle and React Fiber",
-      rawText: lifeCycleAndReactFiber_raw,
-    },
-    { title: "State management", rawText: stateManagementRaw },
-    { title: "React hooks", rawText: reactHooksRaw },
-    { title: "Advance Usages", rawText: advanceUsagesRaw },
-  ];
 
   const [text, setText] = useState("");
-  const [currentTopic, setCurrentTopic] = useState(topics[0].rawText);
+  const [currentTopic, setCurrentTopic] = useState(topics[0].textFile);
 
   useEffect(() => {
     (async () => {
@@ -46,7 +47,7 @@ export default function Tutorial() {
         const temp = topics.filter(
           (topic) => topic.title === element.textContent
         );
-        return temp[0].rawText;
+        return temp[0].textFile;
       });
     }
   };

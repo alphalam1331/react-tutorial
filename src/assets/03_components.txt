@@ -1,16 +1,19 @@
 ### **Components**
-Components are independent and reusable in the sense that once you have written a component snippet and exported it, you can place it anywhere.
-Components, in other words, are like modules, act as the building blocks of a page, but itself can be a page. like App.tsx/App.jsx
+1. Components are independent and reusable resources. Once you have written a component snippet and exported it, you can place it anywhere (by importing it like a module).
+2. Components can be the building blocks of pages, but itself can also be a stand-alone page without importing any other components (like App.tsx or App.jsx)
+3. You can nest components inside components to construct a complex structure.
 
 In React, a component can either be class component or function component.
-Function component is going popular than class component, so it's what we are going to learn in this tutorial.
+Function component is going more popular than class component, so it's what we are going to learn in this tutorial.
 
-As mentioned, App.tsx/App.jsx is an example of components. If you open the file, you will see a function named App which return something unusual.
-
-
-
+As mentioned, App.tsx (or App.jsx) is an example of react components. If you open the file, you can see a function named App which returns something syntactically similar to HTML elements.
 
 ### **JavaScript XML (JSX)**
+
+That's JSX. 
+
+
+
 
 
 ### **References**

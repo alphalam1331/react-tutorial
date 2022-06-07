@@ -7,8 +7,16 @@ export default function About() {
 
   return (
     <>
-      <div>This is the about page.</div>
-      <div>What do you wanna know? {name}</div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <div>This is the about page.</div>
+        <div>What do you wanna know? {name}</div>
+      </div>
     </>
   );
 }

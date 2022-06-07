@@ -13,9 +13,11 @@ function App() {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+
     const target = e.target as typeof e.target & {
       name: { value: string };
     };
+
     const name = target.name.value;
     setName(name);
     if (name) localStorage.setItem("name", name);
@@ -32,6 +34,7 @@ function App() {
 
   return (
     <div className="App">
+      
       <nav className="nav-bar">
         <Link to={"/"}>
           <h2 className="logo">
@@ -87,6 +90,7 @@ function App() {
           </TestimonialsContext.Provider>
         </UserNameContext.Provider>
       </section>
+
     </div>
   );
 }

@@ -9,15 +9,13 @@ Let's say a website mpa.com has pages as listed below:
 - `mpa.com/contact`
 
 if you were at the home page mpa.com/ and clicked the About button in the navigation bar, the followings would happen:
-1. the address at the address bar changed to mpa.com/about and showed loading, the browser sent a request for retrieving the page mpa.com/about to the server
-3. the server processed the request and sent a html document along with the style sheets and scripts back to the browser as the response
+1. the address at the address bar changed to mpa.com/about and the browser sent a request for retrieving the page mpa.com/about to the server
+3. the server processed the request and sent a HTML document along with the necessary style sheets(.css), script (.js), and files (such as .jpeg, .png...) back to the browser as the response
 4. the browser loaded the documents and displayed it to you.
 
-That is to say, when we are directed to another page for having different contents, we have to load a different html document.
+That is to say, when we are directed to another page for having different contents, we have to load a different HTML document.
+if there are homepage, about, profile..., pages, accessing them requires loading the corresponding HTML documents.
 
-
-
-if a website has homepage, about, profile..., pages, there must be several html files sent from the several 
-
-SPA is a web application or website that 
-Before explaining what SPA is, there are some SPA examples that we use everyday like Gmail, Facebook, Google map,  
+SPA is design architecture of web application or website that what is needed for displaying new contents is "data" instead of "a new page".
+In general, the HTML document, style sheets and scripts are loaded from the very beginning, if we, later on, clicked a link which directs us to the desired page, the application will re-render the page according to the scripts written, no new page (HTML, JS, CSS,...) will be loaded. 
+The browser will "re-render" only part of the page that need to be updated.
