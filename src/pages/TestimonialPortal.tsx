@@ -1,5 +1,8 @@
 import { FormEvent, useContext, useState } from "react";
-import { TestimonialsContext } from "../context/testimonialsContext";
+import {
+  Testimonials,
+  TestimonialsContext,
+} from "../context/testimonialsContext";
 import { UserNameContext } from "../context/userNameContext";
 
 const TestimonialPortal = () => {
@@ -16,11 +19,13 @@ const TestimonialPortal = () => {
       title: { value: string };
       content: { value: string };
     };
-
+    const id = "testimonial"+ Date.now();
     const title = target.title.value;
     const content = target.content.value;
 
-    const newTestimonial = { title, content };
+    const newTestimonial = { id, title, content };
+    
+    console.log(newTestimonial.id);
 
     if (setTestimonials) setTestimonials([...testimonials, newTestimonial]);
 
