@@ -112,6 +112,6 @@ const testimonials: Testimonials = [
 ];
 
 export const TestimonialsContext = createContext<{
-  testimonials: Testimonials;
+  testimonials: Testimonials ;
   setTestimonials: React.Dispatch<React.SetStateAction<Testimonials>> | null;
 }>({ testimonials, setTestimonials: null });
