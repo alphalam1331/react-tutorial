@@ -19,11 +19,17 @@ export default function Home() {
         <button onClick={resetName}>Reset your name</button>
       )}
       <div className={classes["grid-box"]}>
-        {testimonials.map((item, index) => (
-          <Card className="grid-item" key={index} title={item.title}>
-            <p>{item.content}</p>
-          </Card>
-        ))}
+        {testimonials.length > 0
+          ? testimonials.map((item, index) => (
+              <Card
+                className="grid-item"
+                key={index}
+                index={index}
+                title={item.title}
+                content={item.content}
+              ></Card>
+            ))
+          : "No Testimonials"}
       </div>
     </div>
   );

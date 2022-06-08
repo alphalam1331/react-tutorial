@@ -6,12 +6,12 @@ import Tutorial from "./pages/Tutorial";
 import { UserNameContext } from "./context/userNameContext";
 import Home from "./pages/Home";
 import TestimonialPortal from "./pages/TestimonialPortal";
-import { TestimonialsContext } from "./context/testimonialsContext";
+import { Testimonials, TestimonialsContext } from "./context/testimonialsContext";
 
 function App() {
   const [name, setName] = useState<string | null>(localStorage.getItem("name"));
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmitName = (e: FormEvent) => {
     e.preventDefault();
 
     const target = e.target as typeof e.target & {
@@ -28,13 +28,13 @@ function App() {
     localStorage.removeItem("name");
   };
 
-  const { testimonials } = useContext(TestimonialsContext);
-
-  const [testimonialList, setTestimonials] = useState(testimonials);
+  const {testimonials} = useContext(TestimonialsContext)
+  const [testimonialList, setTestimonialList] = useState<Testimonials>(testimonials);
 
   return (
     <div className="App">
-      
+
+{/* navigation bar */}
       <nav className="nav-bar">
         <Link to={"/"}>
           <h2 className="logo">
@@ -52,6 +52,7 @@ function App() {
         </Link>
       </nav>
 
+{/* Banner */}
       <header>
         <h1>Welcome {name || "Palowan"}. I am Suen, your React tour guide.</h1>
         {name ? (
@@ -59,7 +60,7 @@ function App() {
         ) : (
           <>
             <form
-              onSubmit={handleSubmit}
+              onSubmit={handleSubmitName}
               style={{ display: "flex", justifyContent: "center" }}
             >
               <input
@@ -74,12 +75,13 @@ function App() {
         )}
       </header>
 
+{/* Main-contents Container */}
       <section style={{display:"flex", justifyContent:"center"}}>
         <UserNameContext.Provider
           value={{ name: name || "Palowan", resetName }}
         >
           <TestimonialsContext.Provider
-            value={{ testimonials: testimonialList, setTestimonials }}
+            value={{ testimonials: testimonialList, setTestimonials: setTestimonialList}}
           >
             <Routes>
               <Route path="/" element={<Home />} />
