@@ -34,7 +34,6 @@ function App() {
 
   return (
     <div className="App">
-      
       <nav className="nav-bar">
         <Link to={"/"}>
           <h2 className="logo">
@@ -74,7 +73,7 @@ function App() {
         )}
       </header>
 
-      <section style={{display:"flex", justifyContent:"center"}}>
+      <section style={{ display: "flex", justifyContent: "center" }}>
         <UserNameContext.Provider
           value={{ name: name || "Palowan", resetName }}
         >
@@ -90,7 +89,6 @@ function App() {
           </TestimonialsContext.Provider>
         </UserNameContext.Provider>
       </section>
-
     </div>
   );
 }

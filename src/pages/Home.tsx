@@ -20,9 +20,13 @@ export default function Home() {
       )}
       <div className={classes["grid-box"]}>
         {testimonials.map((item, index) => (
-          <Card className="grid-item" key={index} title={item.title}>
-            <p>{item.content}</p>
-          </Card>
+          <Card
+            className="grid-item"
+            key={item.id}
+            id={item.id}
+            title={item.title}
+            content={item.content}
+          ></Card>
         ))}
       </div>
     </div>
