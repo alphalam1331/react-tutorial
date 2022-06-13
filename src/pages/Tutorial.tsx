@@ -3,8 +3,8 @@ import ReactMarkdown from "react-markdown";
 import spaRaw from "../assets/01_spa.txt";
 import gettingStartedRaw from "../assets/02_getting_started.txt";
 import componentsRaw from "../assets/03_components.txt";
-import reactFiber_raw from "../assets/04_react_fiber.txt";
-import stateManagementRaw from "../assets/05_state_management.txt";
+import stateManagementRaw from "../assets/04_state_management.txt";
+import globalState_raw from "../assets/05_global_state.txt";
 import reactHooksRaw from "../assets/06_react_hooks.txt";
 import advanceUsagesRaw from "../assets/07_advance_usages.txt";
 
@@ -12,17 +12,16 @@ const topics = [
   { title: "Single Page App (SPA)", textFile: spaRaw },
   { title: "Getting Started", textFile: gettingStartedRaw },
   { title: "Components", textFile: componentsRaw },
-  {
-    title: "React Fiber",
-    textFile: reactFiber_raw,
-  },
   { title: "State management", textFile: stateManagementRaw },
+  {
+    title: "Global State",
+    textFile: globalState_raw,
+  },
   { title: "React hooks", textFile: reactHooksRaw },
   { title: "Advance Usages", textFile: advanceUsagesRaw },
 ];
 
 export default function Tutorial() {
-
   const [text, setText] = useState("");
   const [currentTopic, setCurrentTopic] = useState(topics[0].textFile);
 
@@ -53,7 +52,7 @@ export default function Tutorial() {
   };
 
   return (
-    <div className="container">
+    <>
       <div className="tab-bar" onClick={(e) => handleClick(e)}>
         {topics.map((topic, index) => (
           <button key={index} className="tab">
@@ -61,9 +60,17 @@ export default function Tutorial() {
           </button>
         ))}
       </div>
-      <div>
+      <div
+        style={{
+          overflow: "auto",
+          width: "80%",
+          height: "35rem",
+          border: "1px solid grey",
+          padding: "1rem",
+        }}
+      >
         <ReactMarkdown>{text}</ReactMarkdown>
       </div>
-    </div>
+    </>
   );
 }

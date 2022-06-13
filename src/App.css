@@ -41,6 +41,15 @@ header {
   justify-content: space-evenly;
 }
 
+.tab-bar>button:first-of-type{
+  border-radius: 10px 0 0 0;
+}
+
+.tab-bar>button:last-of-type{
+  border-radius: 0 10px 0 0;
+}
+
+
 .tab-bar>.active{
   background-color: rgba(0, 0, 0, 0.8);
   color: white;

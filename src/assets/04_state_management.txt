@@ -1,0 +1,138 @@
+## **Display the value of variables**
+
+You can place JS expression with curly bracket inside JSX expression as demonstrated below.
+
+
+```JavaScript
+import Home from "./pages/Home"
+
+function App(){
+
+    const name = "Suen"
+
+    return (
+        <div className="App">
+            <nav>This is the nav bar.</nav>
+            <header>
+                <h1>Welcome {name}. I am your React tour guide.</h1>
+            </header>
+            <section>
+                <Home />
+            </section>
+        </div>
+    )
+}
+```
+
+---
+
+## **Change state**
+
+However, the value is fixed and it's not that interesting, right? You don't want the website keep displaying one name to everyone, but the input from users.
+Thus, the name of the user is a state of a component (or, might you intent it to be a cross-components state).
+In react, you can use the react hook, useState, to manage the states of components.
+
+(Hooks are only for function components, you can't use them in class components. There are some built-in hooks provided by React, but for sure, you can build yours. No worries for now, it will be covered in the later section.)
+
+**useState**: Manage states (any forms of data such as strings, numbers, objects or combination of these).
+
+Syntax: const [state, setState] = useState(initialState)
+- useState(initialState) = create a new state with initial value
+- state: storing the value (or the initial value passed to the useState function)
+- setState: the function that returned by useState to manipulate the state (accepting static value or functions to compute the value)
+
+Let's try implementing it!
+
+1. Under the <h1> element in App.jsx, create a <form> element nesting an <input type="text' name="name"> and an <input type="submit">.
+2. Remove the constant "name"
+3. Import react hook useState and call the hook function: `const [name, setName] = useState("Palowan");`
+4. Create a handleSubmitName function for handling the form submission event
+5. Attach the handleSubmitName function to the <form > element's onSubmit property
+
+```JavaScript
+import {useState} from "react"
+import Home from "./pages/Home"
+
+function App(){
+
+    const [name, setName] = useState("Palowan")
+
+    const handleSubmitName = (e)=>{
+        e.preventDefault();
+
+        const inputName = e.target.name.value;
+
+        setName(inputName)
+    }
+
+    return (
+        <div className="App">
+            <nav>This is the nav bar.</nav>
+            <header>
+                <h1>Welcome {name}. I am your React tour guide.</h1>
+                <form
+                 onSubmit={handleSubmitName}
+                 >
+                    <input type="text" name="name"></input>
+                    <input type="submit"></input>
+                </form>
+            </header>
+            <section>
+                <Home />
+            </section>
+        </div>
+    )
+}
+```
+
+---
+
+## **Local Storage**
+
+This one is optional: If you want the browser to save the input from the user to the local storage for later use.
+
+1. Add `localStorage.saveItem("name", inputName);` to the end of the handleSubmitName function
+Then you can retrieve data from local storage and set it as the initial state
+2. Change `const [name, setName] = useState("Palowan");`  
+to `const [name, setName] = useState(localStorage.getItem("name") || "Palowan");`  
+It will retrieve from local storage the data already saved to the "name" field, return null and use "Palowan" as the initial state if there's no such field and data. 
+
+After all these, the code should look like:
+
+```JavaScript
+import {useState} from "react"
+import Home from "./pages/Home"
+
+function App(){
+
+    const [name, setName] = useState(localStorage.getItem("name") || "Palowan")
+
+    const handleSubmitName = (e)=>{
+        e.preventDefault(); // preventDefault() "cancels" the default behavior of form submission for performing your 
+         
+
+        const inputName = e.target.name.value;
+
+        setName(inputName)
+        localStorage.saveItem("name",inputName)
+    }
+
+    return (
+        <div className="App">
+            <nav>This is the nav bar.</nav>
+            <header>
+                <h1>Welcome {name}. I am your React tour guide.</h1>
+                <form
+                 onSubmit={handleSubmitName}
+                >
+                    <input type="text" name="name"></input>
+                    <input type="submit"></input>
+                </form>
+            </header>
+            <section>
+                <Home />
+            </section>
+        </div>
+    )
+}
+```

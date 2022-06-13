@@ -1,0 +1,67 @@
+## **Shared state**
+
+Sometimes you might want to use the state within more than one components. 
+One way to achieve this is pass the state as a property to components.
+For example, if we want to display the name in the Home page, we can do some like this:
+
+
+**Home.jsx**
+
+```JavaScript
+export default function Home({name}){
+    return (
+        <>
+            <div>HIHI! User: {name}</div>
+            <div>This is the Home Page</div>
+        </>
+    )
+}
+```
+
+
+**App.jsx**
+
+```JavaScript
+...
+
+function App(){
+
+...
+
+    return (
+        <div className="App">
+            
+            ...
+
+                <Home name={name}/>
+            
+            ...
+
+        </div>
+    )
+}
+```
+This could be annoying if there are a distance between the provider component and the consumer component.
+It is simply because you have to pass the state as a property to each level all the way down until reaching the final consumer no matter whether the data is used by those intermediaries.
+
+To avoid this kind of redundancy, alternatives are Redux (a third-party library), and Context (builtin). 
+
+---
+
+## **Context**
+Unlike Redux, you don't need to understand concepts like reducers, actions, states and stores, in using context, context is more intuitive and simple.
+Basically, there are three steps.
+
+1. Create a new context object: `React.createContext()`
+2. Setup a provider for the children components: `YourContext.Provider()`
+3. Consuming the data within the components wrapped by the provider: `useContext()`
+
+---
+
+## **Create Context**
+
+```JavaScript
+
+
+```
+

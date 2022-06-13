@@ -16,6 +16,7 @@ if you were at the home page mpa.com/ and clicked the About button in the naviga
 That is to say, when we are directed to another page for having different contents, we have to load a different HTML document.
 if there are homepage, about, profile..., pages, accessing them requires loading the corresponding HTML documents.
 
+
 SPA is design architecture of web application or website that what is needed for displaying new contents is "data" instead of "a new page".
 In general, the HTML document, style sheets and scripts are loaded from the very beginning, if we, later on, clicked a link which directs us to the desired page, the application will re-render the page according to the scripts written, no new page (HTML, JS, CSS,...) will be loaded. 
 The browser will "re-render" only part of the page that need to be updated.

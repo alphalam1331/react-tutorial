@@ -1,20 +1,79 @@
 ### **Components**
 1. Components are independent and reusable resources. Once you have written a component snippet and exported it, you can place it anywhere (by importing it like a module).
 2. Components can be the building blocks of pages, but itself can also be a stand-alone page without importing any other components (like App.tsx or App.jsx)
-3. You can nest components inside components to construct a complex structure.
+3. You can nest components inside components for building a complex structure.
 
 In React, a component can either be class component or function component.
-Function component is going more popular than class component, so it's what we are going to learn in this tutorial.
+Function component is going more popular than class component, that's what we are going to learn in this tutorial.
 
 As mentioned, App.tsx (or App.jsx) is an example of react components. If you open the file, you can see a function named App which returns something syntactically similar to HTML elements.
 
+---
+
 ### **JavaScript XML (JSX)**
+It is JSX which helps us to build the appearance and functionalities of the pages.
+JSX is a syntax extension to JS, that's why the following is a legitimate snippet:
 
-That's JSX. 
+`const element = <div>Welcome to the Jungle</div>`
+
+Snippet above creates an React element which can then be rendered as a HTML element like this:
+
+`<div>Welcome to the Jungle</div>`
 
 
+---
+### **Create components**
+
+This tutorial will walk you through building the SPA that you are using (this tutorial section is not included).
+
+First, let's create our home page.
+
+1. Create a folder your_react_project/src/pages/ and under which create a file: Home.jsx
+2. In Home.jsx, define and export a function returning a simple JSX element. 
+The snippet might look like this:
+
+```JavaScript
+export default function Home(){
+    return (
+        <div>This is the Home Page</div>
+    )
+}
+```
 
 
+You should remember that main.jsx is the entry point of the application, where you can see the App.jsx is imported and the component <App /> is passed to and rendered by the render function.
+Accordingly, you can import the Home directly to the main.jsx, but which we don't usually do this because 
+Now 
+1. clear up the code inside the App.jsx except the function App() itself, 
+2. create a <nav> element,
+4. create a <header> element below the <nav>,
+3. import the Home component and place it inside a <section> which below the <header>.
+The result might look like this:
+
+**The component can only return one JSX element in the outermost level, in other words, you should wrap sibling elements into one parent element.** 
+
+```JavaScript
+import Home from "./pages/Home"
+
+function App(){
+
+    return (
+        <div className="App">
+            <nav>This is the nav bar.</nav>
+            <header>
+                <h1>Welcome Palowan. I am your React tour guide.</h1>
+            </header>
+            <section>
+                <Home />
+            </section>
+        </div>
+    )
+}
+```
+
+Save the file and run the server (see Getting started > Start the React app > Run the server) to see the changes.
+
+---
 
 ### **References**
 

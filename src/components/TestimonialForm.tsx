@@ -1,11 +1,10 @@
 import { FormEvent, useContext, useState } from "react";
 import {
-  Testimonials,
   TestimonialsContext,
 } from "../context/testimonialsContext";
 import { UserNameContext } from "../context/userNameContext";
 
-const TestimonialPortal = () => {
+const TestimonialForm = () => {
   const { name } = useContext(UserNameContext);
 
   const { testimonials, setTestimonials } = useContext(TestimonialsContext);
@@ -34,7 +33,7 @@ const TestimonialPortal = () => {
   };
 
   return (
-    <div className="container">
+    <>
       <div>{name}'s Testimonials</div>
       <form
         style={{ display: "flex", flexDirection: "column" }}
@@ -54,27 +53,17 @@ const TestimonialPortal = () => {
           style={{
             resize: "none",
           }}
-          cols={30}
-          rows={10}
+          cols={50}
+          rows={6}
           placeholder="Put your words here"
           onChange={(e) => setContent(e.currentTarget.value)}
           required
         ></textarea>
         <input type="submit" value="Add" />
       </form>
-      <div>
-        <h2>
-          <u>The latest testimonial</u>
-        </h2>
-        <div>
-          <h3>Title: </h3>
-          <p>{testimonials[testimonials.length - 1].title}</p>
-          <h3>Content: </h3>
-          <p>{testimonials[testimonials.length - 1].content}</p>
-        </div>
-      </div>
-    </div>
+      
+    </>
   );
 };
 
-export default TestimonialPortal;
+export default TestimonialForm;

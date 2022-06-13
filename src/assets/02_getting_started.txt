@@ -1,38 +1,61 @@
-### **Installation**
+### **Prerequisite**
+
+- shell
+- HTML, CSS, JavaScript/ Typescript
+
+---
+
+### **Create project**
 
 - Using create-react-app
-    - JS: `npx create-react-app react-demo-app` or
-    - TS: `npx create-react-app react-demo-app --template typescript`
-    - JS: `yarn create react-app react-demo-app` or
-    - TS: `yarn create react-app react-demo-app --template typescript`
-- Using Vite
-    - `npm create vite@latest` (interactive mode)
-    - `npm create vite@latest react-demo-app -- --template react-ts`(Direct mode)
-    - `yarn create vite` (interactive mode)
-    - `yarn create vite react-demo-app --template react-ts` (Direct mode)
-    - `pnpm create vite` (interactive mode)
-    - `pnpm create vite react-demo-app -- --template react-ts` (Direct mode)
+    - JS: `npx create-react-app react-demo-app` 
+    - JS: `yarn create react-app react-demo-app`
 
+
+- Using Vite
+    - interactive mode
+        - `npm create vite@latest` 
+        - `yarn create vite`
+        - `pnpm create vite`
+
+    - Direct mode
+        - `npm create vite@latest react-demo-app -- --template react` 
+        - `yarn create vite react-demo-app --template react`
+        - `pnpm create vite react-demo-app -- --template react`
+    
+or if you prefer using TypeScript to JavaScript
+
+- Using create-react-app
+    - `npx create-react-app react-demo-app --template typescript`
+    - `yarn create react-app react-demo-app --template typescript`
+
+- Using Vite
+    - `npm create vite@latest react-demo-app -- --template react-ts`
+    - `yarn create vite react-demo-app --template react-ts`
+    - `pnpm create vite react-demo-app -- --template react-ts`
+
+---
 
 ### **Start the React app**
-
 
 1. Change the working directory (don't forget to install the packages for the first time)
     - `cd react-demo-app`
     - `npm i` or `yarn install` or `pnpm i`  
 
 2. Run the server
-    - `npm start` or `yarn start` or `pnpm start`
-    - `npm run dev` or `yarn dev` or `pnpm dev`
+    - Create-react-app project: `npm start` or `yarn start` or `pnpm start`
+    - Vite project: `npm run dev` or `yarn dev` or `pnpm dev`
 
 **go to http://localhost:3000 you should see a rotating react logo**
+
+---
 
 ### **File structure**
 
 Inside the root directory, you may see the react app boilerplate had already been set up for you,
 then go further to the src/ directory where you may see: 
 
-1. main.tsx (or main.jsx) is the entry point of the application. 
-2. App.tsx (or App.jsx) provides you an example of react component, change some code and see what happens!
+1. main.jsx (or main.tsx) is the entry point of the application. 
+2. App.jsx (or App.tsx) provides you an example of react component, change some code and see what happens!
 3. It would be better to manage your files in a hierarchial file structure for having a organised file system. 
 There are many ways to do it, you are free to find one or to make yours, but, as said in the official doc, don't spend more than 5mins on it at the beginning.
